@@ -1,0 +1,12 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: keda-deploy
+  namespace: monitoring
+spec:
+  eventSeverity: info
+  eventSources:
+  - kind: HelmRelease
+    name: keda
+  providerRef:
+    name: monitoring-deploy
